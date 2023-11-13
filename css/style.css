@@ -1,6 +1,14 @@
 @import "/css/reset.css";
 
-/* 헤더 */
+/* 폰트 변수 */
+:root {
+  --font-hn: "Helvetica Neue";
+  --font-kp: "KoPubDotum_Pro";
+  --font-pt: "Pretendard";
+}
+
+/* 헤더/메뉴 영역 */
+
 .header {
   width: 100%;
   height: 92px;
@@ -34,7 +42,7 @@
   width: 147px;
   color: #fff;
   text-align: center;
-  font-family: "Helvetica Neue";
+  font-family: var(--font-hn);
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
@@ -51,9 +59,9 @@
   align-items: center;
 }
 
-.menu > span {
+.menu>span {
   color: #fff;
-  font-family: "KoPubDotum_Pro";
+  font-family: var(--font-kp);
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
@@ -65,7 +73,8 @@
   cursor: pointer;
 }
 
-/* 페이지 개요 섹션 */
+/* 페이지 개요 영역 */
+
 .sec_outline {
   width: 100%;
   height: 1130px;
@@ -88,30 +97,30 @@
 
 .main_title {
   color: #fff;
-  font-family: "KoPubDotum_Pro";
+  font-family: var(--font-kp);
   font-size: 76px;
   font-weight: 500;
   line-height: 1.3;
 }
 
-.main_title > span {
+.main_title>span {
   font-weight: 700;
 }
 
 .outline_desc {
   margin-top: 86px;
   color: #fff;
-  font-family: "KoPubDotum_Pro";
+  font-family: var(--font-kp);
   font-size: 20px;
   font-weight: 300;
   line-height: 1.7;
 }
 
-.outline_desc > b {
+.outline_desc>b {
   font-weight: 700;
 }
 
-.outline_desc > span {
+.outline_desc>span {
   font-weight: 500;
 }
 
@@ -121,7 +130,7 @@
   border-radius: 100%;
   border: 1px solid #d6e2ff;
   color: #d6e2ff;
-  font-family: "Helvetica Neue";
+  font-family: var(--font-hn);
   font-size: 22px;
   font-weight: 700;
   line-height: 1;
@@ -132,27 +141,63 @@
   right: 80px;
 }
 
-/* 텍스트 롤링 배너 섹션 */
+/* 텍스트 롤링 배너 영역 */
+
 .rolling_banner {
   width: 100%;
   height: 784px;
   overflow: hidden;
   white-space: nowrap;
-  background-color: #040402;
+  background: linear-gradient(180deg, #040402 -3.44%, rgba(4, 4, 2, 0.00) 96.56%), #272727;
 }
 
 .text_wrapper {
   padding: 79px 0 145px;
 }
 
-.text_wrapper > div {
+.text_wrapper>div {
   margin: 28px 0;
-  /* 위아래는 없애줘야함 */
+}
+
+.text_wrapper>div:first-of-type {
+  margin: 0 0 28px;
+}
+
+.text_wrapper>div:last-of-type {
+  margin: 28px 0 0;
+}
+
+@keyframes rollingLeft {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes rollingRight {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.text_wrapper>div:nth-of-type(odd) {
+  animation: rollingLeft 20s linear infinite;
+}
+
+.text_wrapper>div:nth-of-type(even) {
+  animation: rollingRight 20s linear infinite;
 }
 
 .text_wrapper span {
   color: #3e3e3e;
-  font-family: "Pretendard";
+  font-family: var(--font-pt);
   font-size: 70px;
   font-weight: 500;
   line-height: 1;
@@ -161,4 +206,169 @@
 .text_wrapper span.highlight {
   color: #d6e2ff;
   font-weight: 600;
+}
+
+.text_wrapper>div:nth-of-type(1)>span,
+.text_wrapper>div:nth-of-type(5)>span,
+.text_wrapper>div:nth-of-type(6)>span {
+  margin-right: 40px;
+}
+
+.text_wrapper>div:nth-of-type(2)>span,
+.text_wrapper>div:nth-of-type(3)>span {
+  margin-right: 38px;
+}
+
+.text_wrapper>div:nth-of-type(4)>span {
+  margin-right: 39px;
+}
+
+/* 채용 포지션 영역 */
+
+.sec_position {
+  width: 100%;
+  height: 1446px;
+  background: #272727;
+  position: relative;
+}
+
+.sec_position:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("/images/bg2.png");
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  z-index: auto;
+}
+
+.contents_wraper {
+  padding: 120px 80px 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.sec_position_title {
+  margin-right: 150px;
+}
+
+.sec_position_title>h6 {
+  color: #d6e2ff;
+  font-family: var(--font-hn);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.sec_position_title>h1 {
+  color: #FFF;
+  font-family: var(--font-kp);
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.sec_position_title span {
+  font-weight: 700;
+}
+
+.position_list {
+  border-top: 1px solid #545454;
+  width: 65%;
+}
+
+.position_list>li {
+  border-bottom: 1px solid #545454;
+  padding: 50px 0 50px;
+}
+
+.position_list>li:nth-of-type(2) {
+  padding: 50px 0 40px;
+}
+
+.position_title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px 0 40px;
+  cursor: pointer;
+}
+
+.position_list>li:nth-of-type(2)>.position_title {
+  margin-bottom: 70px;
+}
+
+.position_title>h2 {
+  color: #FFF;
+  font-family: var(--font-hn);
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.position_title>div {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.position_title .career {
+  color: #d6e2ff;
+  font-family: var(--font-kp);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.position_title .recruit_status {
+  color: #d6e2ff;
+  font-family: var(--font-hn);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 52px;
+  border: 1px solid #d6e2ff;
+  border-radius: 100%;
+  width: 180px;
+  height: 52px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 54px 0 41px;
+}
+
+.position_content {
+  width: 100%;
+  background: #1C1C1C;
+  display: flex;
+  justify-content: flex-start;
+  padding: 50px 0 50px 41px;
+}
+
+.position_content p {
+  color: #FFF;
+  font-family: var(--font-kp);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.position_content li {
+  color: #FFF;
+  font-family: var(--font-kp);
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1;
+  list-style: disc;
+  margin-bottom: 20px;
+}
+
+.position_content li:last-of-type {
+  margin-bottom: 0;
+}
+
+.content_left {
+  margin-right: 10%;
 }
