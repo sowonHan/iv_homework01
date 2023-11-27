@@ -410,9 +410,8 @@
 }
 
 .culture_item {
-  width: 19%;
   height: 319px;
-  flex: 1 0 336px;
+  flex: 1 0 24%;
   background-color: #1c1c1c;
   display: flex;
   flex-direction: column;
@@ -650,7 +649,7 @@
 
   .culture_item {
     height: 160px;
-    flex-basis: 160px;
+    flex: 1 0 33%;
   }
 
   .culture_item img {
